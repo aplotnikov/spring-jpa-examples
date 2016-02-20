@@ -18,6 +18,7 @@ dependencies {
 
     compile "org.springframework:spring-orm:${springframeworkVersion}"
     compile "org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final"
+    compile 'org.springframework.data:spring-data-jpa:1.9.2.RELEASE'
 
     compile "org.hibernate:hibernate-core:${hibernateVersion}"
     compile "org.hibernate:hibernate-entitymanager:${hibernateVersion}"

@@ -1,4 +1,4 @@
-package org.home.spring.jpa.dao;
+package org.home.spring.jpa.dao.data;
 
 import org.home.spring.jpa.model.Country;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import javax.annotation.Nonnull;
 
 @Repository
-public interface CountryJpaDao extends JpaRepository<Country, Integer> {
+public interface CountryJpaDao extends JpaRepository<Country, Integer>, CountryCustomeQueries {
     Country findByNameLike(@Nonnull String name);
 
     @Query("select c from Country c where c.name like :name")

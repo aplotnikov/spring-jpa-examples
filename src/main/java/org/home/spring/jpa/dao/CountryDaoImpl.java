@@ -10,7 +10,7 @@ import javax.persistence.PersistenceUnit;
 import java.util.List;
 
 @Repository
-public class CountryJpaDaoImpl implements CountryDao {
+public class CountryDaoImpl implements CountryDao {
     @PersistenceUnit
     private EntityManagerFactory entityManagerFactory;
 
@@ -53,5 +53,16 @@ public class CountryJpaDaoImpl implements CountryDao {
         entityManager.close();
 
         return country;
+    }
+
+    @Override
+    public void deleteAll() {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+
+        entityManager.createQuery("delete from Country");
+
+        entityManager.getTransaction().commit();
+        entityManager.close();
     }
 }

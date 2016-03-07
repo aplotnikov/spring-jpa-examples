@@ -12,4 +12,6 @@ public interface CountryDao {
     @NotNull @Nonnull List<Country> findAllCountries();
 
     @Nonnull Country findCountryByName(@Nonnull String name);
+
+    void deleteAll();
 }

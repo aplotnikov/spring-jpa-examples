@@ -1,7 +1,9 @@
 package org.home.spring.jpa.dao;
 
 import org.home.spring.jpa.context.ApplicationContext;
+import org.home.spring.jpa.dao.data.CountryJpaDao;
 import org.home.spring.jpa.model.Country;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ActiveProfiles;
@@ -19,6 +21,11 @@ public class CountryJpaDaoTest {
     @Inject
     private CountryJpaDao countryJpaDao;
 
+    @Before
+    public void setUp() throws Exception {
+        countryJpaDao.deleteAll();
+    }
+
     @Test
     public void shouldCountryBeSavedToDatabase() {
         assertThat(countryJpaDao.findAll()).isEmpty();
@@ -30,5 +37,6 @@ public class CountryJpaDaoTest {
         assertThat(countryJpaDao.findByNameLike("Ukraine")).isEqualTo(country);
         assertThat(countryJpaDao.findCountryByNameLike("Ukraine")).isEqualTo(country);
         assertThat(countryJpaDao.findCountryByNameLike2("Ukraine")).isEqualTo(country);
+        assertThat(countryJpaDao.searchForCountryCustomImpl("Ukraine")).isEqualTo(country);
     }
 }

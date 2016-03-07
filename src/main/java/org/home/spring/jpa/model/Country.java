@@ -32,6 +32,10 @@ public class Country implements Serializable {
         this.codeName = codeName;
     }
 
+    public void setName(@Nonnull String name) {
+        this.name = name;
+    }
+
     @Override
     public boolean equals(Object otherObject) {
         if (this == otherObject) {

@@ -28,5 +28,7 @@ public class CountryJpaDaoTest {
         countryJpaDao.save(country);
 
         assertThat(countryJpaDao.findByNameLike("Ukraine")).isEqualTo(country);
+        assertThat(countryJpaDao.findCountryByNameLike("Ukraine")).isEqualTo(country);
+        assertThat(countryJpaDao.findCountryByNameLike2("Ukraine")).isEqualTo(country);
     }
 }
